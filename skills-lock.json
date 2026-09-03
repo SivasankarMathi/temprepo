@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "syncfusion-react-accumulation-chart": {
+      "source": "syncfusion/react-ui-components-skills",
+      "sourceType": "github",
+      "skillPath": "skills/syncfusion-react-accumulation-chart/SKILL.md",
+      "computedHash": "93063ea76d76d70ae1f03fadbd780f5c365685d407a820e2455dd907da5d1879"
+    },
+    "syncfusion-react-charts": {
+      "source": "syncfusion/react-ui-components-skills",
+      "sourceType": "github",
+      "skillPath": "skills/syncfusion-react-charts/SKILL.md",
+      "computedHash": "f738d5db55ca9c6d52d4430e42dea479279c4810ecf10e2d7eacaac0a28a007b"
+    }
+  }
+}
