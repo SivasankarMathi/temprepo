@@ -1,0 +1,158 @@
+# Code Review Guidelines
+
+## Overview
+Code review is a critical part of the development process that improves code quality, knowledge sharing, and catches bugs early. This guide outlines best practices for conducting effective code reviews.
+
+## Before the Review
+
+### Prepare Your Environment
+- Ensure you have the latest code locally
+- Set up any necessary development environment or dependencies
+- Familiarize yourself with the issue or feature being reviewed
+- Review the PR description and related documentation
+
+### Understand the Context
+- Read the issue/ticket associated with the PR
+- Review any design documents or specifications
+- Look at related code and similar implementations
+- Check if there are any known concerns or areas to focus on
+
+## Code Review Checklist
+
+### 1. Functionality
+- ✓ Does the code accomplish what it's supposed to?
+- ✓ Are edge cases handled properly?
+- ✓ Is error handling adequate?
+- ✓ Do the changes break any existing functionality?
+- ✓ Are there any potential race conditions or concurrency issues?
+
+### 2. Code Quality & Style
+- ✓ Does the code follow the project's style guidelines and conventions?
+- ✓ Is the code readable and well-structured?
+- ✓ Are variable and function names clear and meaningful?
+- ✓ Is there excessive code duplication (DRY principle)?
+- ✓ Are there any code smells or anti-patterns?
+
+### 3. Testing
+- ✓ Are there appropriate unit tests for new code?
+- ✓ Are edge cases and error scenarios tested?
+- ✓ Do existing tests still pass?
+- ✓ Is test coverage adequate?
+- ✓ Are tests clear and maintainable?
+
+### 4. Performance
+- ✓ Are there any obvious performance issues?
+- ✓ Are appropriate algorithms and data structures used?
+- ✓ Could the code be optimized?
+- ✓ Are database queries efficient?
+- ✓ Are there any unnecessary operations or loops?
+
+### 5. Security
+- ✓ Are there any security vulnerabilities (SQL injection, XSS, etc.)?
+- ✓ Is user input properly validated and sanitized?
+- ✓ Are secrets and credentials handled securely?
+- ✓ Is authentication/authorization properly implemented?
+- ✓ Are dependencies up to date and secure?
+
+### 6. Documentation & Comments
+- ✓ Is the code self-documenting?
+- ✓ Are complex sections explained with comments?
+- ✓ Is the README or relevant docs updated?
+- ✓ Are API changes documented?
+- ✓ Are breaking changes clearly noted?
+
+### 7. Architecture & Design
+- ✓ Does the code fit well with the existing architecture?
+- ✓ Are design patterns used appropriately?
+- ✓ Is the solution the simplest one that works?
+- ✓ Could the approach be improved?
+- ✓ Are dependencies minimal and appropriate?
+
+## Providing Feedback
+
+### Good Practices
+- **Be constructive**: Focus on the code, not the person
+- **Be specific**: Point to exact lines or provide examples
+- **Explain the "why"**: Help the author understand your reasoning
+- **Ask questions**: Use questions to encourage critical thinking
+- **Acknowledge effort**: Praise good solutions and approaches
+- **Prioritize issues**: Distinguish between critical, important, and nice-to-have
+
+### Feedback Categories
+- **Critical**: Must fix before merging (bugs, security issues, breaking changes)
+- **Important**: Should fix before merging (code quality, maintainability)
+- **Nice-to-have**: Suggestions for improvement (style preferences, minor refactoring)
+
+### Comment Examples
+
+**Good:** "This SQL query could be vulnerable to SQL injection. Consider using parameterized queries instead. See line 42."
+
+**Better:** "This SQL query could be vulnerable to SQL injection. Consider using parameterized queries instead. Here's an example: `db.query('SELECT * FROM users WHERE id = ?', [userId])`"
+
+**Avoid:** "This is bad code."
+
+## Responding to Feedback
+
+### As an Author
+- Take feedback positively and non-defensively
+- Ask clarifying questions if feedback is unclear
+- Explain your reasoning if you disagree
+- Update code and push new commits
+- Thank reviewers for their time and suggestions
+
+### Updating Code
+- Address feedback in new commits (don't force-push)
+- Respond to comments indicating changes were made
+- Re-request review after making significant changes
+- Be ready to discuss and iterate
+
+## Review Turnaround
+
+- Aim to review PRs within 24 hours
+- Prioritize critical issues and urgent PRs
+- Acknowledge receipt even if full review takes longer
+- Provide at least preliminary feedback quickly
+
+## Common Issues to Watch For
+
+### Logic Errors
+- Off-by-one errors
+- Incorrect boolean logic
+- Null/undefined reference issues
+- Missing break statements in loops
+
+### Maintainability
+- Magic numbers and strings without explanation
+- Complex nested conditions that could be simplified
+- Functions doing too many things
+- Poor variable naming
+
+### Performance
+- Unnecessary nested loops
+- Inefficient database queries
+- Loading entire datasets when filtered results would suffice
+- Memory leaks or resource management issues
+
+### Security
+- User input not validated
+- Sensitive data logged
+- Hard-coded credentials
+- Missing CSRF or CORS protections
+
+## Final Approval
+
+- Ensure all critical feedback has been addressed
+- Verify tests pass and code builds successfully
+- Confirm the changes don't introduce regressions
+- Check that documentation is updated if needed
+- Approve and allow merge when satisfied
+
+## Tips for Effective Reviews
+
+1. **Review early and often** - Don't wait for final versions
+2. **Keep reviews focused** - Avoid scope creep into unrelated refactoring
+3. **Be empathetic** - Remember the author is trying their best
+4. **Learn from reviews** - Use reviews as a teaching opportunity
+5. **Automate where possible** - Use linters and tests to catch style issues
+6. **Document decisions** - Keep records of architectural choices
+7. **Celebrate good code** - Give credit for elegant solutions
