@@ -1,0 +1,22 @@
+// UI Context Configuration
+// This file contains context variables and configuration for the UI layer
+
+export const uiContext = {
+  theme: 'light',
+  locale: 'en-US',
+  user: {
+    id: 'user_123',
+    name: 'John Doe',
+    email: 'john.doe@example.com',
+    role: 'admin'
+  },
+  features: {
+    darkMode: true,
+    notifications: true,
+    analytics: true,
+    betaFeatures: false
+  },
+  apiEndpoint: 'https://api.example.com',
+  version: '1.0.0',
+  environment: 'production'
+};
