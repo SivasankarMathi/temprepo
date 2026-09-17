@@ -54,3 +54,11 @@ function showMessage(message, type) {
     messageEl.textContent = message;
     messageEl.className = `login-message ${type}`;
 }
+
+// Theme toggle event listener
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', toggleTheme);
+    }
+});
