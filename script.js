@@ -21,14 +21,19 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
         return;
     }
     
-    // Simulate login
+    // Simulate login and store session
     console.log('Login attempt:', { email, remember });
-    showMessage('Login successful!', 'success');
+    localStorage.setItem('userEmail', email);
+    localStorage.setItem('userName', email.split('@')[0]);
+    if (remember) {
+        localStorage.setItem('rememberMe', 'true');
+    }
     
-    // Clear form
+    showMessage('Login successful! Redirecting...', 'success');
+    
+    // Redirect to dashboard
     setTimeout(() => {
-        this.reset();
-        document.querySelector('.login-message').style.display = 'none';
+        window.location.href = 'dashboard.html';
     }, 1500);
 });
 
