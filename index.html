@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-card">
+      <div class="login-header">
+        <h2>Welcome Back</h2>
+        <p>Please enter your credentials to log in.</p>
+      </div>
+      <form id="loginForm" novalidate>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="name@example.com" required autocomplete="email">
+          <span class="error-message" id="emailError"></span>
+        </div>
+
+        <div class="form-group">
+          <div class="label-row">
+            <label for="password">Password</label>
+            <a href="#forgot" class="forgot-link">Forgot password?</a>
+          </div>
+          <div class="password-input-wrapper">
+            <input type="password" id="password" name="password" placeholder="Enter your password" required autocomplete="current-password">
+            <button type="button" id="togglePassword" class="toggle-password" aria-label="Toggle password visibility">Show</button>
+          </div>
+          <span class="error-message" id="passwordError"></span>
+        </div>
+
+        <div class="form-group remember-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="rememberMe" name="rememberMe">
+            <span>Remember me</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">Sign In</button>
+
+        <div class="form-alert" id="formAlert" role="alert"></div>
+      </form>
+      <div class="login-footer">
+        <p>Don't have an account? <a href="#signup">Sign up</a></p>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
