@@ -2,13 +2,30 @@ import { useState } from 'react'
 import heroImg from './assets/hero.png'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
+import Contact from './Contact'
 import './App.css'
 
 function App() {
+  const [currentPage, setCurrentPage] = useState('home')
   const [count, setCount] = useState(0)
+
+  if (currentPage === 'contact') {
+    return <Contact onBack={() => setCurrentPage('home')} />
+  }
 
   return (
     <>
+      <header className="top-nav">
+        <span className="logo-text">My React App</span>
+        <button
+          type="button"
+          className="contact-nav-btn"
+          onClick={() => setCurrentPage('contact')}
+        >
+          Contact Us
+        </button>
+      </header>
+
       <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
@@ -21,13 +38,22 @@ function App() {
             Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
           </p>
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
+        <div className="home-actions">
+          <button
+            type="button"
+            className="counter"
+            onClick={() => setCount((count) => count + 1)}
+          >
+            Count is {count}
+          </button>
+          <button
+            type="button"
+            className="contact-action-btn"
+            onClick={() => setCurrentPage('contact')}
+          >
+            Go to Contact Page →
+          </button>
+        </div>
       </section>
 
       <div className="ticks"></div>
