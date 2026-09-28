@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 48px 40px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-icon svg {
+      width: 26px;
+      height: 26px;
+      fill: #fff;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #444;
+      margin-bottom: 6px;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      color: #1a1a2e;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      background: #fafafa;
+    }
+
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+      background: #fff;
+    }
+
+    .password-wrapper {
+      position: relative;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #aaa;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .toggle-password:hover {
+      color: #667eea;
+    }
+
+    .toggle-password svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .options {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .remember {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: #555;
+      cursor: pointer;
+    }
+
+    .remember input[type="checkbox"] {
+      accent-color: #667eea;
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+    }
+
+    .forgot {
+      font-size: 0.85rem;
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .forgot:hover {
+      text-decoration: underline;
+    }
+
+    .btn-login {
+      width: 100%;
+      padding: 13px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 0.3px;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+
+    .btn-login:hover {
+      opacity: 0.92;
+    }
+
+    .btn-login:active {
+      transform: scale(0.98);
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 24px 0;
+      color: #ccc;
+      font-size: 0.8rem;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e8e8e8;
+    }
+
+    .btn-google {
+      width: 100%;
+      padding: 12px;
+      background: #fff;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #444;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .btn-google:hover {
+      background: #f5f5f5;
+      border-color: #ccc;
+    }
+
+    .btn-google svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .signup {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 0.88rem;
+      color: #888;
+    }
+
+    .signup a {
+      color: #667eea;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .signup a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+        </svg>
+      </div>
+    </div>
+
+    <h1>Welcome back</h1>
+    <p class="subtitle">Sign in to your account to continue</p>
+
+    <form id="loginForm" novalidate>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="password" name="password" placeholder="••••••••" autocomplete="current-password" required />
+          <button type="button" class="toggle-password" aria-label="Toggle password visibility" onclick="togglePassword()">
+            <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="options">
+        <label class="remember">
+          <input type="checkbox" name="remember" />
+          Remember me
+        </label>
+        <a href="#" class="forgot">Forgot password?</a>
+      </div>
+
+      <button type="submit" class="btn-login">Sign in</button>
+    </form>
+
+    <div class="divider">or continue with</div>
+
+    <button class="btn-google" type="button">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+        <path fill="#EA4335" d="M24 9.5c3.15 0 5.63 1.08 7.7 2.84l5.73-5.73C33.9 3.45 29.27 1.5 24 1.5 14.82 1.5 7.07 7.2 3.92 15.18l6.67 5.18C12.27 13.68 17.66 9.5 24 9.5z"/>
+        <path fill="#4285F4" d="M46.1 24.5c0-1.64-.15-3.22-.42-4.74H24v8.98h12.43c-.54 2.9-2.17 5.36-4.63 7.02l7.19 5.59C43.36 37.3 46.1 31.37 46.1 24.5z"/>
+        <path fill="#FBBC05" d="M10.59 28.64A14.56 14.56 0 0 1 9.5 24c0-1.62.28-3.19.77-4.64L3.6 14.18A22.47 22.47 0 0 0 1.5 24c0 3.58.86 6.97 2.38 9.97l6.71-5.33z"/>
+        <path fill="#34A853" d="M24 46.5c5.27 0 9.7-1.75 12.93-4.75l-7.19-5.59c-1.79 1.2-4.08 1.91-5.74 1.91-6.34 0-11.73-4.18-13.65-9.92l-6.71 5.33C7.07 40.8 14.82 46.5 24 46.5z"/>
+      </svg>
+      Continue with Google
+    </button>
+
+    <p class="signup">Don't have an account? <a href="#">Sign up</a></p>
+  </div>
+
+  <script>
+    function togglePassword() {
+      const input = document.getElementById('password');
+      const icon = document.getElementById('eyeIcon');
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.innerHTML = `
+          <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+          <line x1="1" y1="1" x2="23" y2="23"/>
+        `;
+      } else {
+        input.type = 'password';
+        icon.innerHTML = `
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+          <circle cx="12" cy="12" r="3"/>
+        `;
+      }
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+
+      if (!email || !password) {
+        alert('Please fill in all fields.');
+        return;
+      }
+
+      // Placeholder: handle login logic here
+      alert(`Signing in as ${email}…`);
+    });
+  </script>
+
+</body>
+</html>
