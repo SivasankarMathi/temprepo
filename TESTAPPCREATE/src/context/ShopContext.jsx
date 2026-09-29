@@ -9,6 +9,7 @@ export function ShopProvider({ children }) {
   const [user, setUser] = useState({
     name: 'John Doe',
     email: 'john.doe@example.com',
+    contact: '+1 555 123 4567',
     address: '221B Baker Street, London',
     orders: 12,
   })

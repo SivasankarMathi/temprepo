@@ -41,6 +41,7 @@ export default function Navbar() {
             </span>
           </Link>
           <Link to="/profile" className="hover:underline">Profile</Link>
+          <Link to="/account" className="hover:underline">Account</Link>
           <Link to="/admin" className="hover:underline">Admin</Link>
           <button
             onClick={toggleDarkMode}
