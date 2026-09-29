@@ -1,0 +1,73 @@
+// Initial mock data with 7 days of entries
+export const initialEntries = [
+  {
+    id: '1',
+    date: '2025-05-10',
+    dayName: 'Sat',
+    steps: 10450,
+    calories: 2450,
+    water: 3.0,
+    sleep: 7.8,
+  },
+  {
+    id: '2',
+    date: '2025-05-11',
+    dayName: 'Sun',
+    steps: 8200,
+    calories: 2100,
+    water: 2.2,
+    sleep: 8.5,
+  },
+  {
+    id: '3',
+    date: '2025-05-12',
+    dayName: 'Mon',
+    steps: 9600,
+    calories: 2320,
+    water: 2.8,
+    sleep: 7.2,
+  },
+  {
+    id: '4',
+    date: '2025-05-13',
+    dayName: 'Tue',
+    steps: 11200,
+    calories: 2600,
+    water: 3.2,
+    sleep: 6.9,
+  },
+  {
+    id: '5',
+    date: '2025-05-14',
+    dayName: 'Wed',
+    steps: 7450,
+    calories: 1980,
+    water: 2.1,
+    sleep: 7.5,
+  },
+  {
+    id: '6',
+    date: '2025-05-15',
+    dayName: 'Thu',
+    steps: 12300,
+    calories: 2750,
+    water: 3.5,
+    sleep: 8.0,
+  },
+  {
+    id: '7',
+    date: '2025-05-16',
+    dayName: 'Fri',
+    steps: 10840,
+    calories: 2510,
+    water: 2.9,
+    sleep: 7.4,
+  },
+];
+
+export const DAILY_GOALS = {
+  steps: 10000,
+  calories: 2300,
+  water: 3.0,
+  sleep: 8.0,
+};
