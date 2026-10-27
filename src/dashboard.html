@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <span class="logo">◆</span>
+            <span>Dashboard</span>
+        </div>
+        <div class="user-area">
+            <span id="userName">Admin</span>
+            <a href="login.html" id="logoutLink" title="Log out">Logout</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="welcome">
+            <h1>Welcome back, <span id="welcomeUser">Admin</span>!</h1>
+            <p>Here is a quick overview of your workspace for testing purposes.</p>
+        </section>
+
+        <section class="stats">
+            <div class="stat-card">
+                <span class="stat-value" id="statUsers">128</span>
+                <span class="stat-label">Users</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value" id="statProjects">24</span>
+                <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value" id="statTasks">312</span>
+                <span class="stat-label">Tasks</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value" id="statRevenue">$54k</span>
+                <span class="stat-label">Revenue</span>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Recent Activity</h2>
+            <ul id="activityList" class="activity-list">
+                <li><span class="dot dot-blue"></span> John updated the login page</li>
+                <li><span class="dot dot-green"></span> Sara created project "Dashboard UI"</li>
+                <li><span class="dot dot-purple"></span> Mike completed task #211</li>
+                <li><span class="dot dot-orange"></span> Alex commented on skills feature</li>
+            </ul>
+        </section>
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

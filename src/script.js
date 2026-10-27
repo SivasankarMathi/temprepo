@@ -45,8 +45,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Simple validation (in a real app, this would be server-side)
             if (username === 'admin' && password === 'password') {
                 alert('Login successful! Redirecting...');
-                // In a real app, you would redirect to another page
-                // window.location.href = '/dashboard';
+                // Redirect to the dashboard with the logged-in username
+                window.location.href = 'dashboard.html?user=' + encodeURIComponent(username);
             } else {
                 alert('Invalid username or password. Please try again.');
             }
