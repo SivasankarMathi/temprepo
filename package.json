@@ -1,0 +1,16 @@
+{
+  "name": "acme-login-page",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sign-in page for the Acme workspace demo.",
+  "type": "module",
+  "scripts": {
+    "build": "node --check src/script.js && node --check src/auth.js",
+    "test": "node --test test/*.test.js",
+    "run": "node scripts/serve.js",
+    "lint": "node scripts/lint.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
